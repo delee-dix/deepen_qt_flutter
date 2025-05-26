@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: WebViewExample(),
     );
   }
@@ -31,7 +32,7 @@ class WebViewExampleState extends State<WebViewExample> {
     super.initState();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(Uri.parse('https://flutter.dev/'));
+      ..loadRequest(Uri.parse('https://deepen-qt-test.web.app/'));
   }
 
   @override
