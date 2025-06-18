@@ -12,19 +12,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WebViewExample(),
+      home: WebViewScreen(),
     );
   }
 }
 
-class WebViewExample extends StatefulWidget {
-  const WebViewExample({super.key});
+class WebViewScreen extends StatefulWidget {
+  const WebViewScreen({super.key});
 
   @override
-  WebViewExampleState createState() => WebViewExampleState();
+  WebViewScreenState createState() => WebViewScreenState();
 }
 
-class WebViewExampleState extends State<WebViewExample> {
+class WebViewScreenState extends State<WebViewScreen> {
   late final WebViewController _controller;
 
   @override
@@ -32,14 +32,15 @@ class WebViewExampleState extends State<WebViewExample> {
     super.initState();
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(Uri.parse('https://deepen-qt-test.web.app/'));
+      ..loadRequest(Uri.parse('https://fc1d-175-193-34-14.ngrok-free.app/'));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter WebView Example')),
-      body: WebViewWidget(controller: _controller),
+      // appBar: AppBar(title: const Text('Flutter WebView Screen')),
+      // body: WebViewWidget(controller: _controller),
+      body: SafeArea(child: WebViewWidget(controller: _controller)),
     );
   }
 }
